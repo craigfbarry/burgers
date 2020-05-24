@@ -3,16 +3,24 @@
 
 const db = require("../models");
 module.exports = function(app){
+//Required to render handlebars templates as index,html.
+    app.get('/', function (req, res) {
+        res.render('index');
+      });
+      
 
 //GET route
     app.get("api/burgers",function(req,res){
-        db.Burger.findAll({}).then(function(dbBurger){
-            res.json(dbBurger);
+        console.log("get stuff")
+        db.Burger.findAll().then(function(results){
+            console.log(results);
+            res.json(results);
         });
     });
 
 //POST route
     app.post("api/burgers",function(req,res){
+        console.log("create stuff")
         db.Burger.create({
             burger_name: req.body.burger_name,
             devoured: req.body.devoured
@@ -24,6 +32,7 @@ module.exports = function(app){
 //UPDATE route
 
     app.put("api/burgers",function(req,res){
+        console.log("update stuff")
         db.Burger.update({
             burger_name: req.body.burger_name,
             devoured: req.body.devoured
@@ -35,8 +44,6 @@ module.exports = function(app){
             res.json(dbBurger)
         });
     });
-}
+};
 
 
-// Export routes.
-//module.exports = router;
