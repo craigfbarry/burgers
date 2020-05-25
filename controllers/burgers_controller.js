@@ -10,7 +10,7 @@ module.exports = function(app){
       
 
 //GET route
-    app.get("api/burgers",function(req,res){
+    app.get("/api/burgers",function(req,res){
         console.log("get stuff")
         db.Burger.findAll().then(function(results){
             console.log(results);
@@ -19,7 +19,7 @@ module.exports = function(app){
     });
 
 //POST route
-    app.post("api/burgers",function(req,res){
+    app.post("/api/burgers",function(req,res){
         console.log("create stuff")
         db.Burger.create({
             burger_name: req.body.burger_name,
@@ -31,7 +31,7 @@ module.exports = function(app){
 
 //UPDATE route
 
-    app.put("api/burgers",function(req,res){
+    app.put("/api/burgers",function(req,res){
         console.log("update stuff")
         db.Burger.update({
             burger_name: req.body.burger_name,
