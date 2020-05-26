@@ -1,12 +1,12 @@
 $(document).ready(function() {
   //const burgerContainer = $(".burgers");
   const newBurgerInput = $("#burgerInput")
-
+  let burgers = []
 
     getBurgers();
 
     $(".new-item").on("click",function createBurger(){
-      console.log("try to add burger")
+      event.preventDefault();
       let newBurger = {
         burger_name: newBurgerInput.val().trim(),
         devoured: false
@@ -20,25 +20,14 @@ $(document).ready(function() {
 
 
 
-    function getBurgers() {
+   function getBurgers() {
+   
         $.get("/api/burgers", function(data) {
-          console.log("getting burgers with api call")
-          //console.log(data);
+          console.log("getting burger data from API")
+         
         });
       }
-/*
-    function createBurger(event){
-      event.preventDefault();
-      let newBurger = {
-        text: $newItemInput.val().trim(),
-        complete: false
-      };
-  
-      $.post("/api/burgers", newBurger, getBurgers);
-      $newBurgerInput.val("");
-    }
- */    
-      
+
 /*
       function updateBurgers(todo) {
         $.ajax({

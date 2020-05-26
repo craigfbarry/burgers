@@ -1,4 +1,11 @@
-//Dependencies.
+//************************************************************************************/
+//
+//  Main application file to set up server,template engine, point to the controller,  /
+//  Synchronize database and listen on the port.                                      / 
+//
+//************************************************************************************/
+
+//Dependencies defined.
 const express = require("express");
 const exphbs = require("express-handlebars");
 const db = require("./models");
@@ -6,7 +13,7 @@ const db = require("./models");
 const PORT = process.env.PORT||8080
 
 
-//Set up Express middleware and static hosting.
+//Set up Express middleware and static hosting files in the public folder.
 
 const app = express();
 
@@ -17,7 +24,7 @@ app.use(express.static("./public"));
 app.use(express.static("./views/layouts"));
 
 
-//Set up express handlebars.
+//Set up express handlebars template engine.
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");

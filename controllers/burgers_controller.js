@@ -6,16 +6,15 @@ module.exports = function(app){
 //Required to render handlebars templates as index,html.
     app.get('/', function (req, res) {
         res.render('index');
-      });
+    });
       
 
 //GET route
     app.get("/api/burgers",function(req,res){
-        console.log("get stuff")
-        db.Burger.findAll().then(function(results){
-            console.log(results);
-            res.json(results);
-        });
+        db.Burger.findAll().then(function(burgers){
+            console.log(burgers);
+            res.render("index",{burger:burgers});
+            });
     });
 
 //POST route
@@ -23,7 +22,7 @@ module.exports = function(app){
         console.log("create stuff")
         db.Burger.create({
             burger_name: req.body.burger_name,
-            devoured: req.body.devoured
+            devoured: 0
         }).then(function(dbBurger){
             res.json(dbBurger);
         });
