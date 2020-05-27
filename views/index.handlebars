@@ -2,8 +2,9 @@
 
 <ul>
   {{#each burgers}}
+    {{#unless dataValues.devoured}}
       {{>burger-block dataValues}}
-
+      {{/unless}}    
   {{/each}}
 </ul>
 
@@ -18,3 +19,10 @@
 
   <button type="submit" class="new-item">Add burger</button>
 </form>
+<ul>
+  {{#each burgers}}
+    {{#if dataValues.devoured}}
+      {{>burger-block dataValues}}
+      {{/if}}    
+  {{/each}}
+</ul>

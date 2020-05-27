@@ -14,10 +14,21 @@ $(document).ready(function() {
   
       $.post("/api/burgers", newBurger, getBurgers);
       newBurgerInput.val("");
-    
-    }
+      location.reload();
+      }
     )
 
+
+/*
+    $(".devour").on("click",function updateBurger()
+    {let id =$(this).data("id");
+      $.ajax("/api/burgers/" + id{
+        method: "PUT",
+        url: "/api/burgers/id",
+        data: devoured
+      }).then(getBurgers);
+    }
+*/
 
 
    function getBurgers() {
@@ -28,15 +39,7 @@ $(document).ready(function() {
         });
       }
 
-/*
-      function updateBurgers(todo) {
-        $.ajax({
-          method: "PUT",
-          url: "/api/burgers",
-          data: todo
-        }).then(getBurgers);
-      }
-    */
+
 
 
 
