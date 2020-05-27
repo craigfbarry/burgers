@@ -4,16 +4,14 @@
 const db = require("../models");
 module.exports = function(app){
 //Required to render handlebars templates as index,html.
-    app.get('/', function (req, res) {
-        res.render('index');
-    });
+
       
 
 //GET route
-    app.get("/api/burgers",function(req,res){
+    app.get("/",function(req,res){
         db.Burger.findAll().then(function(burgers){
             console.log(burgers);
-            res.render("index",{burger:burgers});
+            res.render("index",{burgers});
             });
     });
 
@@ -23,8 +21,8 @@ module.exports = function(app){
         db.Burger.create({
             burger_name: req.body.burger_name,
             devoured: 0
-        }).then(function(dbBurger){
-            res.json(dbBurger);
+        }).then(function(burgers){
+            res.json(burgers);
         });
     });
 
@@ -39,8 +37,8 @@ module.exports = function(app){
           where: {
             id: req.body.id
           }  
-        }).then(function(dbBurger){
-            res.json(dbBurger)
+        }).then(function(burgers){
+            res.json(burgers);
         });
     });
 };

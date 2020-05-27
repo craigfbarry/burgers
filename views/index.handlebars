@@ -1,7 +1,8 @@
 <h2>Burgers ready</h2>
 
 <ul>
-  {{#each burger}}
+  {{#each burgers}}
+      {{>burger-block dataValues}}
 
   {{/each}}
 </ul>
