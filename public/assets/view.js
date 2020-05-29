@@ -1,7 +1,7 @@
 $(document).ready(function() {
   //const burgerContainer = $(".burgers");
   const newBurgerInput = $("#burgerInput")
-  let burgers = []
+  
 
     getBurgers();
 
@@ -12,23 +12,25 @@ $(document).ready(function() {
         devoured: false
       };
   
-      $.post("/api/burgers", newBurger, getBurgers);
-      newBurgerInput.val("");
-      location.reload();
-      }
-    )
+      $.post("/api/burgers", newBurger, getBurgers).then(function(){
+        newBurgerInput.val("");
+        location.reload();
+      });
+    })
 
 
-/*
+
     $(".devour").on("click",function updateBurger()
-    {let id =$(this).data("id");
-      $.ajax("/api/burgers/" + id{
+    {
+      event.preventDefault();
+      let id =$(this).data("id");
+      $.ajax({
         method: "PUT",
-        url: "/api/burgers/id",
+        url: "/api/burgers/",
         data: devoured
-      }).then(getBurgers);
-    }
-*/
+      }).then(location.reload());
+    })
+
 
 
    function getBurgers() {

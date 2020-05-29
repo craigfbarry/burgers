@@ -28,7 +28,7 @@ module.exports = function(app){
 
 //UPDATE route
 
-    app.put("/api/burgers/:id",function(req,res){
+    app.put("/api/burgers/",function(req,res){
         console.log("update stuff")
         db.Burger.update({
             burger_name: req.body.burger_name,
