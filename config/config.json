@@ -1,7 +1,7 @@
 {
     "development": {
       "username": "root",
-      "password": "",
+      "password": "C@esar99",
       "database": "burgers_db",
       "host": "127.0.0.1",
       "port": 3306,
@@ -16,15 +16,7 @@
       "dialect": "mysql"
     },
     "production": {
-<<<<<<< HEAD
       "use_env_variable": "JAWSDB_URL",
-=======
-      "username": "root",
-      "password": "",
-      "database": "burgers_db",
-      "host": "127.0.0.1",
-      "port": 3306,
->>>>>>> e4a9f22d019b1233c7aa51a10ce2253d2b2b7880
       "dialect": "mysql"
     }
   }
